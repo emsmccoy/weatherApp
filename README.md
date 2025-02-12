@@ -256,7 +256,7 @@ GET https://api.openweathermap.org/data/2.5/forecast?q=London&appid=YOUR_API_KEY
 
 ---
 
-# Component Tree v0.1
+# Component Tree v0.2
 
 ```mermaid
 graph TD
@@ -265,9 +265,12 @@ graph TD
   A --> D[5-day Forecast]
   
   C --> E[Location]
+  C --> P[Icon]
   C --> F[Temperature]
-  C --> G[Humidity]
-  C --> H[Wind Speed]
+  C --> R[Description]
+  C --> G[Details]
+  C --> Q[Sunrise/ Sunset]
+
   
   D --> I[Day 1]
   D --> J[Day 2]
@@ -282,6 +285,8 @@ graph TD
 ---
 
 # Wireframe
+
+**<u>[Excalidraw Link| Hand-drawn look & feel • Collaborative • Secure](https://excalidraw.com/#json=Wp98sx_t0pRu7KTKXvy36,5YE37lRhJAuf3rX5VbNzrg)</u>**
 
 ![](/home/emma/.config/marktext/images/2025-02-12-18-05-32-Wireframe_Excalidraw.png)
 
