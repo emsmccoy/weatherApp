@@ -16,12 +16,12 @@ This document serves as a guide and log for the frontend development  of the Wea
 
 #### **🔹 Understand New Core React Concepts**
 
-- [ ] **useEffect Hook**: Handle API calls and side effects
-- [ ] **Mapping Arrays**: Render lists dynamically (weather forecast)
+- [x] **useEffect Hook**: Handle API calls and side effects
+- [x] **Mapping Arrays**: Render lists dynamically (weather forecast)
 
 #### **🔹 UI Structure & Styling**
 
-- [ ] Define **component tree** for a one-page weather app
+- [x] Define **component tree** for a one-page weather app
 - [ ] Create **low-fidelity wireframe**
 - [ ] Use **Material UI** for styling
 
@@ -46,24 +46,24 @@ This document serves as a guide and log for the frontend development  of the Wea
 
 # ** Estimated Time for Tasks**
 
-| Task                                  | Estimated Time | Actual Time | Impediments                                          | New Concepts                |
-| ------------------------------------- | -------------- | ----------- | ---------------------------------------------------- | --------------------------- |
-| Setup Git & README                    | 30 min         | 2 hours     | -                                                    | -                           |
-| Create `.gitignore` and `.env`        | 15 min         | 15 minutes  | -                                                    | .env file                   |
-| Study OpenWeather API                 | 1 hour         | 1 hour      | API limits? Built-in geolocation has been deprecated | Fetching JSON               |
-| Understanding useEffect for API Calls | 45 min         | X           | -                                                    | Side effects                |
-| Understanding Mapping Arrays          | 15 min         | X           | -                                                    | Array methods               |
-| Define Component Tree                 | 30 min         | X           | -                                                    | -                           |
-| Create Wireframe                      | 1 hour         | X           | -                                                    | -                           |
-| Set up React Project                  | 30 min         | X           | -                                                    | -                           |
-| Implement Search Component            | 2 hours        | X           | -                                                    | useState, onChange          |
-| Implement Current Weather Display     | 3 hours        | X           | -                                                    | API calls, useEffect        |
-| Implement 5-Day Forecast Component    | 3 hours        | X           | -                                                    | Mapping data                |
-| Fetch & Display Weather Data          | 2 hours        | X           | -                                                    | Async/Await                 |
-| Handle API Errors                     | 1 hour         | X           | -                                                    | Error handling              |
-| Use Material UI for Styling           | 2 hours        | X           | -                                                    | Component library           |
-| Write Unit Tests                      | 2 hours        | X           | -                                                    | Jest, React Testing Library |
-| **Total**                             | **~20 hours**  | **X hours** | -                                                    | Tasks                       |
+| Task                                  | Estimated Time | Actual Time | Impediments                                          | New Concepts                                                     |
+| ------------------------------------- | -------------- | ----------- | ---------------------------------------------------- | ---------------------------------------------------------------- |
+| Setup Git & README                    | 30 min         | 2 hours     | -                                                    | -                                                                |
+| Create `.gitignore` and `.env`        | 15 min         | 15 minutes  | -                                                    | .env file                                                        |
+| Study OpenWeather API                 | 1 hour         | 1 hour      | API limits? Built-in geolocation has been deprecated | Fetching JSON                                                    |
+| Understanding useEffect for API Calls | 45 min         | 45 min      | -                                                    | Side effects <br/> Not efficient for event handlers like onClick |
+| Understanding Mapping Arrays          | 15 min         | 15 min      | -                                                    | Array methods                                                    |
+| Define Component Tree                 | 30 min         | 30 min      | -                                                    | -                                                                |
+| Create Wireframe                      | 1 hour         | X           | -                                                    | -                                                                |
+| Set up React Project                  | 30 min         | X           | -                                                    | -                                                                |
+| Implement Search Component            | 2 hours        | X           | -                                                    | useState, onChange                                               |
+| Implement Current Weather Display     | 3 hours        | X           | -                                                    | API calls, useEffect                                             |
+| Implement 5-Day Forecast Component    | 3 hours        | X           | -                                                    | Mapping data                                                     |
+| Fetch & Display Weather Data          | 2 hours        | X           | -                                                    | Async/Await                                                      |
+| Handle API Errors                     | 1 hour         | X           | -                                                    | Error handling                                                   |
+| Use Material UI for Styling           | 2 hours        | X           | -                                                    | Component library                                                |
+| Write Unit Tests                      | 2 hours        | X           | -                                                    | Jest, React Testing Library                                      |
+| **Total**                             | **~20 hours**  | **X hours** | -                                                    | Tasks                                                            |
 
 ---
 
@@ -78,9 +78,13 @@ To access OpenWeather API endpoints, you need an API key.
 ### Steps to Use the API Key:
 
 1. Sign up at [OpenWeather](https://home.openweathermap.org/users/sign_up).
+
 2. Verify your email and log in.
+
 3. Navigate to "API keys" in your account settings.
+
 4. Copy your generated API key.
+
 5. Paste it in your .env file and make sure the .env file is included in your .gitignore
    
    ```properties
@@ -124,7 +128,6 @@ GET https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&
 **Example Response:**
 
 ```json
-                          
 {
    "coord": {
       "lon": 7.367,
@@ -250,6 +253,31 @@ GET https://api.openweathermap.org/data/2.5/forecast?q=London&appid=YOUR_API_KEY
 | 401  | Invalid API key   |
 | 404  | City not found    |
 | 429  | Too many requests |
+
+---
+
+# Component Tree v0.1
+
+```mermaid
+graph TD
+  A[WeatherApp] --> B[Search Bar]
+  A --> C[Current Weather]
+  A --> D[5-day Forecast]
+  
+  C --> E[Location]
+  C --> F[Temperature]
+  C --> G[Humidity]
+  C --> H[Wind Speed]
+  
+  D --> I[Day 1]
+  D --> J[Day 2]
+  D --> K[Day 3]
+  D --> L[Day 4]
+  D --> M[Day 5]
+  
+  B --> N[Input Field]
+  B --> O[Submit Button]
+```
 
 ---
 
