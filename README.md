@@ -22,7 +22,7 @@ This document serves as a guide and log for the frontend development  of the Wea
 #### **🔹 UI Structure & Styling**
 
 - [x] Define **component tree** for a one-page weather app
-- [ ] Create **low-fidelity wireframe**
+- [x] Create **low-fidelity wireframe**
 - [ ] Use **Material UI** for styling
 
 #### **🔹 Development**
@@ -54,7 +54,7 @@ This document serves as a guide and log for the frontend development  of the Wea
 | Understanding useEffect for API Calls | 45 min         | 45 min      | -                                                    | Side effects <br/> Not efficient for event handlers like onClick |
 | Understanding Mapping Arrays          | 15 min         | 15 min      | -                                                    | Array methods                                                    |
 | Define Component Tree                 | 30 min         | 30 min      | -                                                    | -                                                                |
-| Create Wireframe                      | 1 hour         | X           | -                                                    | -                                                                |
+| Create Wireframe                      | 1 hour         | 1 hour      | -                                                    | Excalidraw tool                                                  |
 | Set up React Project                  | 30 min         | X           | -                                                    | -                                                                |
 | Implement Search Component            | 2 hours        | X           | -                                                    | useState, onChange                                               |
 | Implement Current Weather Display     | 3 hours        | X           | -                                                    | API calls, useEffect                                             |
@@ -280,6 +280,10 @@ graph TD
 ```
 
 ---
+
+# Wireframe
+
+![](/home/emma/.config/marktext/images/2025-02-12-18-05-32-Wireframe_Excalidraw.png)
 
 # Error Documentation and Solutions
 
