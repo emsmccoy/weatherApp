@@ -23,7 +23,6 @@ This document serves as a guide and log for the frontend development  of the Wea
 
 - [x] Define **component tree** for a one-page weather app
 - [x] Create **low-fidelity wireframe**
-- [ ] Use **Material UI** for styling
 
 #### **🔹 Development**
 
@@ -46,24 +45,25 @@ This document serves as a guide and log for the frontend development  of the Wea
 
 # ** Estimated Time for Tasks**
 
-| Task                                  | Estimated Time | Actual Time | Impediments                                          | New Concepts                                                     |
-| ------------------------------------- | -------------- | ----------- | ---------------------------------------------------- | ---------------------------------------------------------------- |
-| Setup Git & README                    | 30 min         | 2 hours     | -                                                    | -                                                                |
-| Create `.gitignore` and `.env`        | 15 min         | 15 minutes  | -                                                    | .env file                                                        |
-| Study OpenWeather API                 | 1 hour         | 1 hour      | API limits? Built-in geolocation has been deprecated | Fetching JSON                                                    |
-| Understanding useEffect for API Calls | 45 min         | 45 min      | -                                                    | Side effects <br/> Not efficient for event handlers like onClick |
-| Understanding Mapping Arrays          | 15 min         | 15 min      | -                                                    | Array methods                                                    |
-| Define Component Tree                 | 30 min         | 30 min      | -                                                    | -                                                                |
-| Create Wireframe                      | 1 hour         | 1 hour      | -                                                    | Excalidraw tool                                                  |
-| Set up React Project                  | 30 min         | X           | -                                                    | -                                                                |
-| Implement Search Component            | 2 hours        | X           | -                                                    | useState, onChange                                               |
-| Implement Current Weather Display     | 3 hours        | X           | -                                                    | API calls, useEffect                                             |
-| Implement 5-Day Forecast Component    | 3 hours        | X           | -                                                    | Mapping data                                                     |
-| Fetch & Display Weather Data          | 2 hours        | X           | -                                                    | Async/Await                                                      |
-| Handle API Errors                     | 1 hour         | X           | -                                                    | Error handling                                                   |
-| Use Material UI for Styling           | 2 hours        | X           | -                                                    | Component library                                                |
-| Write Unit Tests                      | 2 hours        | X           | -                                                    | Jest, React Testing Library                                      |
-| **Total**                             | **~20 hours**  | **X hours** | -                                                    | Tasks                                                            |
+| Task                                       | Estimated Time | Actual Time | Impediments                                          | New Concepts                                                     |
+| ------------------------------------------ | -------------- | ----------- | ---------------------------------------------------- | ---------------------------------------------------------------- |
+| Setup Git & README                         | 30 min         | 2 hours     | -                                                    | -                                                                |
+| Create `.gitignore` and `.env`             | 15 min         | 15 minutes  | -                                                    | .env file                                                        |
+| Study OpenWeather API                      | 1 hour         | 1 hour      | API limits? Built-in geolocation has been deprecated | Fetching JSON                                                    |
+| Understanding useEffect for API Calls      | 45 min         | 45 min      | -                                                    | Side effects <br/> Not efficient for event handlers like onClick |
+| Understanding Mapping Arrays               | 15 min         | 15 min      | -                                                    | Array methods                                                    |
+| Define Component Tree                      | 30 min         | 30 min      | Had to redesign according to new tasks               | -                                                                |
+| Create Wireframe                           | 1 hour         | 1:30 hour   | Had to redesign according to new tasks               | Excalidraw tool                                                  |
+| Set up React Project Folders               | 30 min         | 30 min      | -                                                    | -                                                                |
+| Implement Router for multi-page navigation | 1 hour         |             |                                                      |                                                                  |
+| Create Home page                           |                |             |                                                      |                                                                  |
+| Implement Search Component                 | 1 hours        | X           | -                                                    | useState, onChange                                               |
+| Implement Current Weather Display          | 2 hours        | X           | -                                                    | API calls, useEffect                                             |
+| Implement 5-Day Forecast Component         | 2 hours        | X           | -                                                    | Mapping data                                                     |
+| Implement Favourite Locations              | 1:30 hours     | X           | -                                                    | Async/Await                                                      |
+| Implement Map page                         | 1:30 hours     | X           | -                                                    | Error handling                                                   |
+| Use Material UI for Styling                | 2 hours        | X           | -                                                    | Component library                                                |
+| **Total**                                  | **~20 hours**  | **X hours** | -                                                    | Tasks                                                            |
 
 ---
 
@@ -256,39 +256,29 @@ GET https://api.openweathermap.org/data/2.5/forecast?q=London&appid=YOUR_API_KEY
 
 ---
 
-# Component Tree v0.2
+# Component Tree v1.0
 
 ```mermaid
 graph TD
-  A[WeatherApp] --> B[Search Bar]
-  A --> C[Current Weather]
-  A --> D[5-day Forecast]
-  
-  C --> E[Location]
-  C --> P[Icon]
-  C --> F[Temperature]
-  C --> R[Description]
-  C --> G[Details]
-  C --> Q[Sunrise/ Sunset]
+A[WeatherApp] --> B[Router]
+B --> C[Home]
+B --> D[Weather]
+B --> E[Map]
+B --> F[About]
+D --> G[SearchBar]
+D --> H[CurrentWeather]
+D --> I[5-DayForecast]
+D --> J[Favorites]
+E --> K[LeafletMap]
+E --> L[MapMarkers]
 
-  
-  D --> I[Day 1]
-  D --> J[Day 2]
-  D --> K[Day 3]
-  D --> L[Day 4]
-  D --> M[Day 5]
-  
-  B --> N[Input Field]
-  B --> O[Submit Button]
 ```
 
 ---
 
-# Wireframe
+# Wireframe (v1.0)
 
-**<u>[Excalidraw Link| Hand-drawn look & feel • Collaborative • Secure](https://excalidraw.com/#json=Wp98sx_t0pRu7KTKXvy36,5YE37lRhJAuf3rX5VbNzrg)</u>**
-
-![](/home/emma/.config/marktext/images/2025-02-12-18-05-32-Wireframe_Excalidraw.png)
+![](/home/emma/MyProjects/DAW/weatherApp/_PRA/Multipage_Wireframe_Excalidraw.png)
 
 # Error Documentation and Solutions
 
