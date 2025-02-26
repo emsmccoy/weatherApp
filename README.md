@@ -24,10 +24,10 @@ This document serves as a guide and log for the frontend development  of the Wea
 | Set up React Project Folders               | 30 min         | 30 min      | -                                                    | -                                                                |
 | Implement Router for multi-page navigation | 1 hour         | 2 hours     | Routing concept not understood properly              |                                                                  |
 | Create Weather page                        |                |             |                                                      |                                                                  |
-| Implement Search Component                 | 1 hours        | X           | -                                                    | useState, onChange                                               |
-| Implement Current Weather Display          | 2 hours        | X           | -                                                    | API calls, useEffect                                             |
-| Implement 5-Day Forecast Component         | 2 hours        | X           | -                                                    | Mapping data                                                     |
-| Implement Favourite Locations              | 1:30 hours     | X           | -                                                    | Async/Await                                                      |
+| Implement Search Component                 | 1 hours        | 1 hour      | -                                                    | useState, onChange                                               |
+| Implement Current Weather Display          | 2 hours        | 1 hour      | -                                                    | API calls, useEffect                                             |
+| Implement 5-Day Forecast Component         | 2 hours        | 1 hour      | -                                                    | Mapping data                                                     |
+| Implement Favourite Locations              | 1:30 hours     | 1 hour      | -                                                    | Async/Await                                                      |
 | Implement Map page                         | 1:30 hours     | X           | -                                                    | Error handling                                                   |
 | Use Material UI for Styling                | 2 hours        | X           | -                                                    | Component library                                                |
 | **Total**                                  | **~16 hours**  | **X hours** | -                                                    | Tasks                                                            |
