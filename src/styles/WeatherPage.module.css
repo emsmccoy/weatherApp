@@ -1,0 +1,114 @@
+/* Main container styling */
+.weatherPageContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #f0f4f8, #e9ecef);
+  }
+  
+  /* Search bar section */
+  .searchSection {
+    margin-bottom: 3rem;
+    text-align: centre;
+  }
+  
+  /* Current weather display */
+  .currentWeatherCard {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  
+  .weatherHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: centre;
+    margin-bottom: 1.5rem;
+  }
+  
+  .weatherMain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .weatherDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  /* Favourites section */
+  .favouritesSection {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Error and loading states */
+  .errorMessage {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: centre;
+  }
+  
+  .loadingState {
+    display: flex;
+    justify-content: centre;
+    align-items: centre;
+    padding: 2rem;
+    font-size: 1.2rem;
+    colour: #6c757d;
+  }
+  
+  .loadingSpinner {
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .weatherPageContainer {
+      padding: 1rem;
+    }
+  
+    .weatherMain {
+      grid-template-columns: 1fr;
+    }
+  
+    .weatherDetails {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .mainContent {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+  
+    .favouritesSection {
+      margin-top: 0;
+      height: fit-content;
+      position: sticky;
+      top: 1rem;
+    }
+  }
+  

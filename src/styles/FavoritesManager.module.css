@@ -1,0 +1,40 @@
+.favoritesPanel {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weatherSummary {
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 0.5rem;
+}
+
+.weatherSummary:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.weatherDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favoriteItem {
+  padding: 0.5rem 0;
+}
+
+.favoritesList {
+  max-height: 400px;
+  overflow-y: auto;
+}

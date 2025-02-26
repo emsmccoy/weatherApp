@@ -1,0 +1,20 @@
+.forecastContainer {
+    margin: 2rem auto;
+    max-width: 1200px;
+  }
+  
+  .forecastGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .forecastItem {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: centre;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
