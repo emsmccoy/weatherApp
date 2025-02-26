@@ -22,8 +22,8 @@ This document serves as a guide and log for the frontend development  of the Wea
 | Define Component Tree                      | 30 min         | 30 min      | Had to redesign according to new tasks               | -                                                                |
 | Create Wireframe                           | 1 hour         | 1:30 hour   | Had to redesign according to new tasks               | Excalidraw tool                                                  |
 | Set up React Project Folders               | 30 min         | 30 min      | -                                                    | -                                                                |
-| Implement Router for multi-page navigation | 1 hour         |             |                                                      |                                                                  |
-| Create Home page                           |                |             |                                                      |                                                                  |
+| Implement Router for multi-page navigation | 1 hour         | 2 hours     | Routing concept not understood properly              |                                                                  |
+| Create Weather page                        |                |             |                                                      |                                                                  |
 | Implement Search Component                 | 1 hours        | X           | -                                                    | useState, onChange                                               |
 | Implement Current Weather Display          | 2 hours        | X           | -                                                    | API calls, useEffect                                             |
 | Implement 5-Day Forecast Component         | 2 hours        | X           | -                                                    | Mapping data                                                     |
@@ -238,7 +238,6 @@ D --> I[5-DayForecast]
 D --> J[Favorites]
 E --> K[LeafletMap]
 E --> L[MapMarkers]
-
 ```
 
 ---
