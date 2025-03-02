@@ -22,6 +22,7 @@ export default function MainLayout() {
           </Typography>
           <Button component={StyledLink} to="/">Home</Button>
           <Button component={StyledLink} to="/weather">Weather</Button>
+          <Button component={StyledLink} to="/map">Map</Button>         
           <Button component={StyledLink} to="/about">About</Button>
         </Toolbar>
       </AppBar>
