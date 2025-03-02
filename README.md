@@ -12,25 +12,25 @@ This document serves as a guide and log for the frontend development  of the Wea
 
 # ** Estimated Time for Tasks**
 
-| Task                                       | Estimated Time | Actual Time | Impediments                                          | New Concepts                                                     |
-| ------------------------------------------ | -------------- | ----------- | ---------------------------------------------------- | ---------------------------------------------------------------- |
-| Setup Git & README                         | 30 min         | 2 hours     | -                                                    | -                                                                |
-| Create `.gitignore` and `.env`             | 15 min         | 15 minutes  | -                                                    | .env file                                                        |
-| Study OpenWeather API                      | 1 hour         | 1 hour      | API limits? Built-in geolocation has been deprecated | Fetching JSON                                                    |
-| Understanding useEffect for API Calls      | 45 min         | 45 min      | -                                                    | Side effects <br/> Not efficient for event handlers like onClick |
-| Understanding Mapping Arrays               | 15 min         | 15 min      | -                                                    | Array methods                                                    |
-| Define Component Tree                      | 30 min         | 30 min      | Had to redesign according to new tasks               | -                                                                |
-| Create Wireframe                           | 1 hour         | 1:30 hour   | Had to redesign according to new tasks               | Excalidraw tool                                                  |
-| Set up React Project Folders               | 30 min         | 30 min      | -                                                    | -                                                                |
-| Implement Router for multi-page navigation | 1 hour         | 2 hours     | Routing concept not understood properly              |                                                                  |
-| Create Weather page                        |                |             |                                                      |                                                                  |
-| Implement Search Component                 | 1 hours        | 1 hour      | -                                                    | useState, onChange                                               |
-| Implement Current Weather Display          | 2 hours        | 1 hour      | -                                                    | API calls, useEffect                                             |
-| Implement 5-Day Forecast Component         | 2 hours        | 1 hour      | -                                                    | Mapping data                                                     |
-| Implement Favourite Locations              | 1:30 hours     | 1 hour      | -                                                    | Async/Await                                                      |
-| Implement Map page                         | 1:30 hours     | X           | -                                                    | Error handling                                                   |
-| Use Material UI for Styling                | 2 hours        | X           | -                                                    | Component library                                                |
-| **Total**                                  | **~16 hours**  | **X hours** | -                                                    | Tasks                                                            |
+| Task                                       | Estimated Time | Actual Time | Impediments                                                                                                                                      | New Concepts                                                     |
+| ------------------------------------------ | -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| Setup Git & README                         | 30 min         | 2 hours     | -                                                                                                                                                | -                                                                |
+| Create `.gitignore` and `.env`             | 15 min         | 15 minutes  | -                                                                                                                                                | .env file                                                        |
+| Study OpenWeather API                      | 1 hour         | 1 hour      | API limits? Built-in geolocation has been deprecated                                                                                             | Fetching JSON                                                    |
+| Understanding useEffect for API Calls      | 45 min         | 45 min      | -                                                                                                                                                | Side effects <br/> Not efficient for event handlers like onClick |
+| Understanding Mapping Arrays               | 15 min         | 15 min      | -                                                                                                                                                | Array methods                                                    |
+| Define Component Tree                      | 30 min         | 30 min      | Had to redesign according to new tasks                                                                                                           | -                                                                |
+| Create Wireframe                           | 1 hour         | 1:30 hour   | Had to redesign according to new tasks                                                                                                           | Excalidraw tool                                                  |
+| Set up React Project Folders               | 30 min         | 30 min      | -                                                                                                                                                | -                                                                |
+| Implement Router for multi-page navigation | 1 hour         | 2 hours     | Routing concept not understood properly                                                                                                          |                                                                  |
+| Create Weather page                        |                |             |                                                                                                                                                  |                                                                  |
+| Implement Search Component                 | 1 hours        | 1 hour      | -                                                                                                                                                | useState, onChange                                               |
+| Implement Current Weather Display          | 2 hours        | 1 hour      | -                                                                                                                                                | API calls, useEffect                                             |
+| Implement 5-Day Forecast Component         | 2 hours        | 1 hour      | -                                                                                                                                                | Mapping data                                                     |
+| Implement Favourite Locations              | 1:30 hours     | 1 hour      | -                                                                                                                                                | Async/Await                                                      |
+| Implement Map page                         | 1:30 hours     | 1:30 hours  | Obsolete styling conflict in Material UI (v5) caused by missing ThemeProvider, and ES modules error in Leaflet from incompatible require() usage | Error handling                                                   |
+| Use Material UI for Styling                | 2 hours        | X           | -                                                                                                                                                | Component library                                                |
+| **Total**                                  | **~16 hours**  | **X hours** | -                                                                                                                                                | Tasks                                                            |
 
 ---
 
@@ -248,40 +248,80 @@ E --> L[MapMarkers]
 
 # Error Documentation and Solutions
 
-### Error: `[ERROR_MESSAGE]`
+### Error: `MUI: The 'styles' argument is invalid` & `ReferenceError: require is not defined`
 
-**Corresponding Task:** [RELATED_TASK]
+**Corresponding Task:** Integrate Leaflet map with Material UI v5
 
-**Description:** [ERROR_DESCRIPTION]
+**Description:** 
+
+Two concurrent errors:
+
+1. Material UI theme context missing due to deprecated `makeStyles` implementation
+
+2. Leaflet icon imports failing due to CommonJS `require()` in ES modules environment
 
 **Error Trace:**
 
-- **Component:** [COMPONENT_NAME]
-- **File:** [FILE_NAME]
-- **Line:** [ERROR_LINE]
+- **Component:** `MapComponent`
+
+- **File:** `MapComponent.jsx`
+
+- **Line:** 19 (MUI error) | 20 (Leaflet error)
+
 - **Stack Trace:**
-  - [ERROR_TRACE]
+  
+  - `TypeError: theme.spacing is not a function`
+  
+  - `Uncaught ReferenceError: require is not defined`
 
 **Possible Causes:**
 
-- [POTENTIAL_CAUSES]
+1. Using legacy `@mui/styles` instead of modern Emotion/styled API
+
+2. Missing ThemeProvider wrapper in parent components
+
+3. Incorrect Leaflet asset loading in module bundlers (Vite/Webpack)
 
 **Solution:**
 
 ```jsx
-// Fixed code or solution
+// Fixed Material UI implementation
+import { styled } from '@mui/material/styles';
+
+const MapContainerStyled = styled(MapContainer)(({ theme }) => ({
+  height: "400px",
+  width: "100%",
+}));
+
+// Fixed Leaflet imports
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+// Icon configuration
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
+
 ```
 
-**Explanation:** [EXPLANATION_OF_THE_SOLUTION]
+**Explanation:** 
+
+1. **Material UI Fix:** Replaced deprecated `makeStyles` with `styled()` API to properly access theme context
+
+2. **Leaflet Fix:** Converted CommonJS `require()` to ES module static imports and configured icon paths
+
+3. **Bundler Compatibility:** Added file-loader/webpack aliases to handle Leaflet's PNG assets
 
 ---
 
 ## Future Improvements
 
-- Improve **loading states** while fetching data
+- [ ] Improve **loading states** while fetching data
 
-- Add a **“favorite cities”** feature
+- [ ] Allow **temperature unit conversion (°C ⇄ °F)**
 
-- Allow **temperature unit conversion (°C ⇄ °F)**
+- [ ] Include **dark mode**
 
 ---
